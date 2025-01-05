@@ -209,6 +209,18 @@
 }
 
 @layer layout {
+  /* not(:first-child) | where(not(:first-child)) */
+  .flow > * + * {
+    --flow-space: 1em;
+    margin-top: var(--flow-space);
+  }
+
+  .grid-flow {
+    --grid-flow-space: 1rem;
+    display: grid;
+    gap: var(--grid-flow-space);
+  }
+
   .wrapper {
     /* locally scoped custom properties */
 
@@ -304,6 +316,9 @@
       flex-wrap: wrap;
       gap: 0.5rem 1rem;
     }
+  }
+
+  .hero {
   }
 }
 
