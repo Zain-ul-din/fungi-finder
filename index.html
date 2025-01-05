@@ -22,17 +22,19 @@
     -->
     <header class="site-header">
       <div class="wrapper wrapper--wide">
-        <img src="/assets/fungi-finders.svg" alt="Fungi Finders" />
-        <!-- 
+        <div class="site-header__inner">
+          <img src="/assets/fungi-finders.svg" alt="Fungi Finders" />
+          <!-- 
           since we gonna have multiple nav on the page 
           -->
-        <nav class="primary-navigation">
-          <ul>
-            <li><a href="/">Discover</a></li>
-            <li><a href="#">Mushroom Guide</a></li>
-            <li><a href="#">FAQ</a></li>
-          </ul>
-        </nav>
+          <nav class="primary-navigation">
+            <ul role="list">
+              <li><a href="/">Discover</a></li>
+              <li><a href="#">Mushroom Guide</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 
@@ -65,8 +67,8 @@
       </section>
 
       <!-- features -->
-      <section>
-        <div class="wrapper wrapper--narrow">
+      <section class="section">
+        <div class="wrapper">
           <h2>The joys of mushroom foraging</h2>
 
           <p>
@@ -78,7 +80,7 @@
           </p>
 
           <!-- three columns -->
-          <div>
+          <div class="equal-columns">
             <div class="card">
               <img
                 src="/assets/outdoor-exploration.webp"
@@ -127,7 +129,7 @@
         </div>
       </section>
 
-      <section>
+      <section class="section background-accent">
         <div class="wrapper wrapper--narrow">
           <h2>Start your <span>Foraging Adventure!</span></h2>
           <p>
@@ -138,10 +140,14 @@
         </div>
       </section>
 
-      <section>
+      <section class="section background-extra-dark">
         <!-- two column -->
         <div class="wrapper wrapper--wide">
-          <div>
+          <div
+            class="equal-columns"
+            data-columns-gap="large"
+            data-columns-alignment="center"
+          >
             <div>
               <img
                 src="/assets/get-to-know.webp"
@@ -149,7 +155,7 @@
               />
             </div>
             <div>
-              <h2>Get to know your mushrooms</h2>
+              <h2 class="section-title">Get to know your mushrooms</h2>
               <p>
                 Successful and safe mushroom foraging begins with a deep
                 understanding of the species you'll encounter in the wild - not
@@ -172,12 +178,16 @@
         </div>
       </section>
 
-      <section>
+      <section class="section">
         <div class="wrapper wrapper--wide">
           <!-- two column -->
-          <div>
+          <div
+            class="equal-columns"
+            data-columns-gap="large"
+            data-columns-alignment="center"
+          >
             <div>
-              <h2>Connect with Nature</h2>
+              <h2 class="section-title">Connect with Nature</h2>
               <p>
                 Experience the beauty of the great outdoors while foraging for
                 mushrooms with fellow enthusiasts.

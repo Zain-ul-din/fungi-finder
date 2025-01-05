@@ -240,6 +240,71 @@
   .wrapper--narrow {
     --wrapper-max-width: 720px;
   }
+
+  .section {
+    /* only gonna add padding top and bottom */
+    --section-padding: 3.75rem;
+    padding-block: var(--section-padding);
+
+    @media (width > 760px) {
+      --section-padding: 8rem;
+
+      &[data-padding="compact"] {
+        --section-padding: 4.5rem;
+      }
+    }
+  }
+
+  .equal-columns {
+    display: grid;
+
+    gap: var(--equal-columns-gap, 1rem);
+
+    align-items: var(--equal-columns-vertical-align, stretch);
+
+    @media (width > 760px) {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
+
+    &[data-columns-gap="large"] {
+      --equal-columns-gap: 2rem;
+    }
+
+    &[data-columns-alignment="center"] {
+      --equal-columns-vertical-align: center;
+    }
+  }
+
+  /* flex box version */
+  /* .flex-equal-columns {
+    display: flex;
+    > * {
+      flex: 1;
+    }
+  } */
+}
+
+@layer components {
+  /* Intrinsic layout: avoid media query and let browser handle responsiveness */
+  .site-header {
+    padding-block: 1rem;
+  }
+
+  .site-header__inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+
+  .primary-navigation {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+  }
 }
 
 @layer utilities {
@@ -251,6 +316,54 @@
     overflow: hidden;
     position: absolute;
     white-space: nowrap;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-brand {
+    color: var(--text-brand);
+  }
+  .text-high-contrast {
+    color: var(--text-high-contrast);
+  }
+
+  .section-title {
+    font-size: var(--font-size-heading-regular);
+  }
+
+  .background-base {
+    background-color: var(--background-base);
+  }
+  .background-light {
+    background-color: var(--background-light);
+  }
+  .background-extra-light {
+    background-color: var(--background-extra-light);
+  }
+  .background-dark {
+    background-color: var(--background-dark);
+  }
+  .background-extra-dark {
+    background-color: var(--background-extra-dark);
+  }
+
+  .background-accent {
+    background-color: var(--background-accent-dark);
+  }
+
+  .font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+  .font-size-regular {
+    font-size: var(--font-size-regular);
+  }
+  .font-size-md {
+    font-size: var(--font-size-md);
+  }
+  .font-size-lg {
+    font-size: var(--font-size-lg);
   }
 }
 
