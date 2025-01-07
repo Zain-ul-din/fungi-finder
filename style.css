@@ -313,13 +313,13 @@
     }
   }
 
-  .grid-auto-fit {
+  .grid-auto-fill {
     --auto-fit-min-col-size: 250px;
     display: grid;
     gap: 1rem;
     /* auto fit vs auto fill */
     grid-template-columns: repeat(
-      auto-fit,
+      auto-fill,
       minmax(min(var(--auto-fit-min-col-size), 100%), 1fr)
     );
   }
@@ -627,6 +627,10 @@
 }
 
 @layer utilities {
+  [hidden] {
+    display: none;
+  }
+
   .visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
