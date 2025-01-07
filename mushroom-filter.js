@@ -1,6 +1,6 @@
 const cards = Array.from(document.querySelectorAll(".mushroom-guide .card"));
-const seasonalFilter = document.getElementById("season");
 const edibleFilter = document.getElementById("edible");
+const seasonalFilter = document.getElementById("season");
 const noMatchesText = document.querySelector(".no-matches");
 
 const filter = {
@@ -46,3 +46,10 @@ function updateFilter(e) {
 
 seasonalFilter.addEventListener("change", updateFilter);
 edibleFilter.addEventListener("change", updateFilter);
+
+// ✈ enable javascript here
+// since we are hiding things that are depends on JS, In case user don't have JS enable
+(() => {
+  seasonalFilter.hidden = false;
+  edibleFilter.hidden = false;
+})();
