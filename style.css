@@ -325,6 +325,10 @@
     }
   }
 
+  [aria-controls="primary-nav"] {
+    display: none;
+  }
+
   .primary-navigation {
     ul {
       display: flex;
@@ -346,6 +350,7 @@
       font-weight: 700;
       font-family: var(--ff-heading);
       border-radius: 0 0 0 var(--border-radius-2);
+      display: none;
 
       ul {
         gap: 0;
@@ -357,6 +362,17 @@
         margin-block-start: 1rem;
         padding-block-start: 1rem;
       }
+    }
+  }
+
+  @media (width < 760px) {
+    /* handle toggle */
+    [aria-expanded="true"] + .primary-navigation {
+      display: block !important;
+    }
+
+    [aria-controls="primary-nav"] {
+      display: block;
     }
   }
 
