@@ -1,6 +1,7 @@
 const cards = Array.from(document.querySelectorAll(".mushroom-guide .card"));
 const seasonalFilter = document.getElementById("season");
 const edibleFilter = document.getElementById("edible");
+const noMatchesText = document.querySelector(".no-matches");
 
 const filter = {
   season: "all",
@@ -8,6 +9,7 @@ const filter = {
 };
 
 const filterCards = () => {
+  let match = false;
   cards.forEach((card) => {
     const cardData = getCardData(card);
 
@@ -15,8 +17,11 @@ const filterCards = () => {
       (filter.edible === "all" || cardData.edible.includes(filter.edible)) &&
       (filter.season === "all" || cardData.season.includes(filter.season));
 
+    if (shouldVisible) match = true;
     card.hidden = !shouldVisible;
   });
+
+  noMatchesText.hidden = match;
 };
 
 const getCardData = (card) => {
