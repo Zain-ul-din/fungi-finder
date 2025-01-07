@@ -176,6 +176,21 @@
   html {
     font-family: var(--ff-body);
     line-height: 1.6;
+    /* optional */
+    scroll-padding-block: 5svh;
+  }
+
+  /*
+    for specific element which is being scroll to
+    #faq {
+      scroll-margin: 10rem;
+    }
+  */
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
