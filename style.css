@@ -302,6 +302,22 @@
 }
 
 @layer components {
+  .skip-to-main:not(:focus) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  .skip-to-main {
+    position: absolute;
+    padding: 1rem;
+    background-color: var(--background-accent-dark);
+  }
+
   /* Intrinsic layout: avoid media query and let browser handle responsiveness */
   .site-header {
     padding-block: 1rem;
