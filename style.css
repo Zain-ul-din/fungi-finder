@@ -434,10 +434,12 @@
     background-color: var(--background-extra-light);
     border-radius: var(--border-radius-1);
     padding: 0.75rem;
+    flex: 1;
   }
 
   .card {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--card-gap, 1rem);
     padding: 1rem;
     background-color: var(--background-light);
