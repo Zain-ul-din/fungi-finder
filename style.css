@@ -213,6 +213,12 @@
 }
 
 @layer layout {
+  .flex-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--flex-group-gap, 0.5rem);
+  }
+
   /* not(:first-child) | where(not(:first-child)) */
   .flow > * + * {
     --flow-space: 1em;
@@ -498,6 +504,14 @@
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
+    border-radius: var(--border-radius-2);
+  }
+
+  select {
+    padding: 0.5rem 1rem;
+    background-color: var(--background-accent-main);
+    border: 0;
+    color: var(--text-high-contrast);
     border-radius: var(--border-radius-2);
   }
 
