@@ -11,6 +11,16 @@
  3. Design System
 */
 
+@view-transition {
+  navigation: auto;
+}
+
+/* 
+- old -> new
+::view-transition-group(root) {
+  animation-duration: 1s;
+} */
+
 @layer reset {
   *,
   *::before,
