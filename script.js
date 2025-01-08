@@ -8,3 +8,13 @@ navToggle.addEventListener("click", () => {
     isNavOpen === "true" ? "false" : "true"
   );
 });
+
+const resizeObserver = new ResizeObserver((entries) => {
+  document.body.classList.add("resizing");
+
+  requestAnimationFrame(() => {
+    document.body.classList.remove("resizing");
+  });
+});
+
+resizeObserver.observe(document.body);

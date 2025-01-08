@@ -11,6 +11,16 @@
  3. Design System
 */
 
+@view-transition {
+  navigation: auto;
+}
+
+/* 
+- old -> new
+::view-transition-group(root) {
+  animation-duration: 1s;
+} */
+
 @layer reset {
   *,
   *::before,
@@ -353,6 +363,9 @@
   /* Intrinsic layout: avoid media query and let browser handle responsiveness */
   .site-header {
     padding-block: 1rem;
+    overflow-x: clip;
+    /* overflow-clip-margin */
+    position: relative;
   }
 
   .site-header__inner {
@@ -389,20 +402,41 @@
     }
 
     @media (width < 760px) {
-      padding: 1.5rem;
-      position: absolute;
-      z-index: 10;
-      top: 0;
-      right: 0;
-      background-color: var(--background-accent-main);
-      font-weight: 700;
-      font-family: var(--ff-heading);
-      border-radius: 0 0 0 var(--border-radius-2);
-      display: none;
+      & {
+        display: none;
+        opacity: 0;
+        transition: opacity 450ms, display 500ms, translate 500ms;
+        transition-behavior: allow-discrete;
+        translate: 100% 0;
+
+        padding: 1.5rem;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        background-color: var(--background-accent-main);
+        font-weight: 700;
+        font-family: var(--ff-heading);
+        border-radius: 0 0 0 var(--border-radius-2);
+      }
 
       ul {
         gap: 0;
         flex-direction: column;
+      }
+
+      li {
+        --delay: 400ms;
+        translate: 50%;
+        transition: translate 400ms var(--delay), opacity 400ms var(--delay);
+      }
+
+      li:nth-child(2) {
+        --delay: 500ms;
+      }
+
+      li:nth-child(3) {
+        --delay: 600ms;
       }
 
       li + li {
@@ -417,6 +451,23 @@
     /* handle toggle */
     [aria-expanded="true"] + .primary-navigation {
       display: block !important;
+      opacity: 1;
+      translate: 0 0;
+
+      @starting-style {
+        opacity: 0;
+        translate: 0 -100%;
+      }
+
+      li {
+        translate: 0 0;
+        opacity: 1;
+
+        @starting-style {
+          opacity: 0;
+          translate: 50% 0;
+        }
+      }
     }
 
     [aria-controls="primary-nav"] {
@@ -432,6 +483,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    /* ✨ Animation Guide */
+
+    /* forwards */
+    /* animation: fade-out both; */
+    /* scroll() or view() */
+    /* animation-timeline: view(); */
+    /* animation-range-start: exit; */
   }
 
   .hero__title {
@@ -627,6 +686,11 @@
 }
 
 @layer utilities {
+  .resizing * {
+    transition: none !important;
+    animation: none !important;
+  }
+
   [hidden] {
     display: none;
   }
@@ -687,6 +751,17 @@
   }
   .font-size-lg {
     font-size: var(--font-size-lg);
+  }
+}
+
+@layer animations {
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 }
 

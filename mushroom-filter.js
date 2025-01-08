@@ -41,7 +41,13 @@ const getCardData = (card) => {
 function updateFilter(e) {
   const filterType = e.target.name;
   filter[filterType] = e.target.value;
-  filterCards();
+
+  // browser support check
+  if (typeof document.startViewTransition === "function") {
+    document.startViewTransition(() => filterCards());
+  } else {
+    filterCards();
+  }
 }
 
 seasonalFilter.addEventListener("change", updateFilter);
@@ -52,4 +58,9 @@ edibleFilter.addEventListener("change", updateFilter);
 (() => {
   seasonalFilter.hidden = false;
   edibleFilter.hidden = false;
+
+  cards.forEach((card, idx) => {
+    const mushroomId = `mushroom-card-${idx + 1}`;
+    card.style.viewTransitionName = `${mushroomId}`;
+  });
 })();
