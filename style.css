@@ -425,6 +425,20 @@
         flex-direction: column;
       }
 
+      li {
+        --delay: 400ms;
+        translate: 50%;
+        transition: translate 400ms var(--delay), opacity 400ms var(--delay);
+      }
+
+      li:nth-child(2) {
+        --delay: 500ms;
+      }
+
+      li:nth-child(3) {
+        --delay: 600ms;
+      }
+
       li + li {
         border-top: 2px solid var(--background-accent-light);
         margin-block-start: 1rem;
@@ -443,6 +457,16 @@
       @starting-style {
         opacity: 0;
         translate: 0 -100%;
+      }
+
+      li {
+        translate: 0 0;
+        opacity: 1;
+
+        @starting-style {
+          opacity: 0;
+          translate: 50% 0;
+        }
       }
     }
 
