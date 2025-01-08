@@ -678,6 +678,11 @@
 }
 
 @layer utilities {
+  .resizing * {
+    transition: none !important;
+    animation: none !important;
+  }
+
   [hidden] {
     display: none;
   }
