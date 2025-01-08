@@ -483,6 +483,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    /* ✨ Animation Guide */
+
+    /* forwards */
+    /* animation: fade-out both; */
+    /* scroll() or view() */
+    /* animation-timeline: view(); */
+    /* animation-range-start: exit; */
   }
 
   .hero__title {
@@ -743,6 +751,17 @@
   }
   .font-size-lg {
     font-size: var(--font-size-lg);
+  }
+}
+
+@layer animations {
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 }
 
